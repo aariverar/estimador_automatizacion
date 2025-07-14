@@ -459,7 +459,7 @@ function App() {
                     control={
                       <Switch
                         checked={autoCalculate}
-                        onChange={(e) => setAutoCalculate(e.target.checked)}
+                        onChange={(e: React.ChangeEvent<HTMLInputElement>) => setAutoCalculate(e.target.checked)}
                         color="primary"
                       />
                     }
@@ -494,7 +494,7 @@ function App() {
                         <Box sx={{ px: 1 }}>
                           <Slider
                             value={formData[item.key as keyof EstimationForm] as number}
-                            onChange={(_, value) => handleTimeChange(item.key as keyof EstimationForm, value as number)}
+                            onChange={(_: Event, value: number | number[]) => handleTimeChange(item.key as keyof EstimationForm, value as number)}
                             min={0}
                             max={40}
                             step={0.5}
@@ -504,7 +504,7 @@ function App() {
                               { value: 40, label: '40h' }
                             ]}
                             valueLabelDisplay="auto"
-                            valueLabelFormat={(value) => `${value}h`}
+                            valueLabelFormat={(value: number) => `${value}h`}
                             sx={{ color: item.color }}
                             disabled={autoCalculate && formData.tipoComplejidad !== ''}
                           />
@@ -513,7 +513,7 @@ function App() {
                           fullWidth
                           type="number"
                           value={formData[item.key as keyof EstimationForm]}
-                          onChange={(e) => handleTimeChange(item.key as keyof EstimationForm, parseFloat(e.target.value) || 0)}
+                          onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleTimeChange(item.key as keyof EstimationForm, parseFloat(e.target.value) || 0)}
                           inputProps={{ step: 0.5, min: 0 }}
                           size="small"
                           sx={{ mt: 1 }}
