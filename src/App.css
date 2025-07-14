@@ -1,0 +1,237 @@
+/* Reset y estilos globales para la plataforma de estimación QA */
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100vh; /* Altura fija de viewport */
+  width: 100%;
+  background: #FAFAFA;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  overflow: hidden; /* Evita scroll en el root */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh; /* Altura fija de viewport */
+  overflow: hidden; /* Evita scroll en body */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100vh; /* Altura fija de viewport */
+  overflow: hidden; /* Evita scroll en html */
+}
+
+/* Layout por contenedores - header fijo + contenido con scroll */
+.MuiAppBar-root {
+  z-index: 1300 !important;
+  position: fixed !important;
+}
+
+/* Responsivo para diferentes aspectos de pantalla */
+@media (orientation: landscape) and (max-height: 600px) {
+  /* Para pantallas horizontales cortas */
+  .main-content {
+    padding-top: 8px !important;
+    padding-bottom: 8px !important;
+  }
+}
+
+@media (orientation: portrait) {
+  /* Para pantallas verticales */
+  .main-content {
+    padding-top: 16px !important;
+    padding-bottom: 16px !important;
+  }
+}
+
+/* Header fijo - Capa superior */
+.MuiAppBar-root {
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  width: 100% !important;
+  z-index: 1300 !important;
+  background-color: #EC0000 !important;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15) !important;
+}
+
+.MuiToolbar-root {
+  background-color: #EC0000 !important;
+  color: white !important;
+}
+
+/* Contenido principal - Sin padding conflictivo */
+.main-content {
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .MuiContainer-root {
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+  
+  .MuiToolbar-root {
+    min-height: 56px !important;
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+
+/* Animaciones para elementos interactivos */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(236, 0, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(236, 0, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(236, 0, 0, 0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+/* Estilos para elementos con animación */
+.animate-fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+.animate-pulse {
+  animation: pulse 2s infinite;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out;
+}
+
+/* Estilos personalizados para el tema Santander */
+.santander-gradient {
+  background: linear-gradient(45deg, #EC0000 30%, #FF4444 90%);
+}
+
+.santander-shadow {
+  box-shadow: 0 4px 20px rgba(236, 0, 0, 0.15);
+}
+
+/* Estilos para campos de formulario mejorados */
+.form-field-enhanced {
+  transition: all 0.3s ease;
+}
+
+.form-field-enhanced:hover {
+  transform: translateY(-2px);
+}
+
+/* Estilos para sliders personalizados */
+.MuiSlider-thumb {
+  transition: all 0.2s ease;
+}
+
+.MuiSlider-thumb:hover {
+  box-shadow: 0 0 0 8px rgba(236, 0, 0, 0.16);
+}
+
+/* Estilos para tarjetas interactivas */
+.interactive-card {
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.interactive-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(236, 0, 0, 0.15);
+}
+
+/* Estilos para botones con efectos */
+.button-glow {
+  transition: all 0.3s ease;
+}
+
+.button-glow:hover {
+  box-shadow: 0 0 20px rgba(236, 0, 0, 0.3);
+}
+
+/* Utilidades adicionales */
+.text-santander {
+  color: #EC0000;
+}
+
+.bg-santander {
+  background-color: #EC0000;
+}
+
+.border-santander {
+  border-color: #EC0000;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #EC0000 30%, #FF4444 90%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+  #root {
+    padding: 0.5rem;
+  }
+  
+  .animate-slide-in {
+    animation: fadeIn 0.3s ease-out;
+  }
+}
+
+/* Scrollbar personalizado */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #EC0000;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #B30000;
+}
